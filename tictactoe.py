@@ -52,13 +52,17 @@ class Board(object):
         """
         Returns true if the space specified by the column and row is out of bounds
         """
-        pass
+        if column < 0 or column >= 3 or row < 0 or row >= 3:
+            return True
+        return False
 
     def square_empty(self, column, row):
         """
         Returns true if the space specified by the column and row is empty 
         """
-        pass
+        if self.out_of_bounds(column, row):
+            return False
+        return self.board[column][row] == '_'
 
     def board_full(self):
         """
