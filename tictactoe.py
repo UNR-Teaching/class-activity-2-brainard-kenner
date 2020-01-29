@@ -1,7 +1,6 @@
 """ Note: Although the skeleton below is in Python, you may use any programming language you want so long as the language supports object-oriented programming, 
           and you make use of relevant object-oriented design principles.
 """
-~~~~~~~~~~~~
 
 class Board(object):
 
@@ -9,8 +8,7 @@ class Board(object):
         """
         Initializes the Board of size 3x3
         """
-
-        pass
+        self.board = [['_']*3]*3 
 
     def mark_square(self, column, row, player):
         """
@@ -20,7 +18,7 @@ class Board(object):
         :param row: (int) the 0-indexed row of the Board to mark
         :param player: (str) the X or O representation of which player to mark in square
 
-        :return: ????
+        :return: true on sucess, false on error
         """
 
         pass
@@ -29,7 +27,7 @@ class Board(object):
         """
         Checks to see if there is a current winner of the game
 
-        :return: ????
+        :return: X, O, or None if no winner
         """
 
         pass
