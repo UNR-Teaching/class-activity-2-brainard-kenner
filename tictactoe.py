@@ -41,6 +41,25 @@ class Board(object):
         """
         
         pass
+
+    def out_of_bounds(self, column, row):
+        """
+        Returns true if the space specified by the column and row is out of bounds
+        """
+        pass
+
+    def square_empty(self, column, row):
+        """
+        Returns true if the space specified by the column and row is empty 
+        """
+        pass
+
+    def board_full(self):
+        """
+        Returns true if the board is full
+        """
+        pass
+
         
 if __name__ == '__main__':
     board = Board()
