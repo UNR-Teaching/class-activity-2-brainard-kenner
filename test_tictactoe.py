@@ -8,6 +8,8 @@ class TicTacToeTester(unittest.TestCase):
         self.assertTrue(board.mark_square(0, 0, 'O'), "Not able to add an O to an empty board")
         self.assertEqual(board.board[0][0], 'O', "O was not sucessfully added to the empty board")
 
+    def test_has_winner(self):
+        pass
 
 if __name__ == "__main__":
     unittest.main()

@@ -60,6 +60,23 @@ class Board(object):
         """
         pass
 
+    def valid_player(self, player):
+        """
+        Checks whether the player is X or O
+        """
+        pass
+
+    def board_tied(self):
+        """
+        Checks whether the board is in a tied state
+        """
+        pass
+
+    def board_valid(self):
+        """
+        Checks if the board has the correct number of X and O values
+        """
+        pass
         
 if __name__ == '__main__':
     board = Board()
