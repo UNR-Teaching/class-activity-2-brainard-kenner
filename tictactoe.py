@@ -8,7 +8,7 @@ class Board(object):
         """
         Initializes the Board of size 3x3
         """
-        self.board = [['_']*3]*3 
+        self.board = [['_' for _ in range(3)] for _ in range(3)]
 
     def mark_square(self, column, row, player):
         """
@@ -45,8 +45,29 @@ class Board(object):
         
         :return: (str) the letter representing the player who won
         """
-        
-        pass
+        player = 'X'
+
+        while not self.board_full():
+            print(self.board)
+            print("Current player: " + player)
+            valid_input = False
+            while not valid_input:
+                print("please enter column then row:")
+                input_col = int(input())
+                input_row = int(input())
+                valid_input = self.mark_square(input_col, input_row, player)
+                if not valid_input:
+                    print("Invalid input, please try again")
+            if self.has_winner() is not None:
+                return player
+            if self.board_tied():
+                return None
+            
+            if player == 'X':
+                player = 'O'
+            else:
+                player = 'X'
+        return None
 
     def out_of_bounds(self, column, row):
         """
