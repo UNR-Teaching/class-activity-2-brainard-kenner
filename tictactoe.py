@@ -20,8 +20,14 @@ class Board(object):
 
         :return: true on sucess, false on error
         """
-
-        pass
+        if self.out_of_bounds(column, row):
+            return False
+        if not self.square_empty(column, row):
+            return False
+        if not self.valid_player(player):
+            return False
+        self.board[column][row] = player
+        return True
 
     def has_winner(self):
         """
