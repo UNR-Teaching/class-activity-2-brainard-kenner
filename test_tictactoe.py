@@ -9,14 +9,6 @@ class TicTacToeTester(unittest.TestCase):
     def setUp(self):
         self.board = Board()
 
-    def test_add_o(self):
-        board = Board()
-        self.assertTrue(board.mark_square(0, 0, 'O'), "Not able to add an O to an empty board")
-        self.assertEqual(board.board[0][0], 'O', "O was not sucessfully added to the empty board")
-
-    def test_has_winner(self):
-        pass
-
     def test_mark_square_normal_use_X(self):
         self.assertTrue(self.board.mark_square(1, 2, 'X'))
         self.assertEqual(self.board.board[1][2], 'X')
@@ -82,7 +74,7 @@ class TicTacToeTester(unittest.TestCase):
         self.board.mark_square(2, 2, 'X')
         self.assertFalse(self.board.board_tied())
 
-    def test_board_tied_full_winner_X(self):
+    def test_board_tied_not_full(self):
         self.board.mark_square(1, 1, 'X')
         self.board.mark_square(1, 2, 'O')
         self.board.mark_square(2, 0, 'O')
@@ -104,6 +96,18 @@ class TicTacToeTester(unittest.TestCase):
         self.board.mark_square(1, 2, 'X')
         self.board.mark_square(2, 0, 'X')
         self.assertFalse(self.board.board_valid())
+
+    def test_has_winner_tie(self):
+        self.board.mark_square(0, 0, 'O')
+        self.board.mark_square(0, 1, 'X')
+        self.board.mark_square(0, 2, 'X')
+        self.board.mark_square(1, 0, 'X')
+        self.board.mark_square(1, 1, 'X')
+        self.board.mark_square(1, 2, 'O')
+        self.board.mark_square(2, 0, 'O')
+        self.board.mark_square(2, 1, 'O')
+        self.board.mark_square(2, 2, 'X')
+        self.assertIsNone(self.board.test_has_winner())
 
 if __name__ == "__main__":
     unittest.main()
