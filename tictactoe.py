@@ -85,7 +85,7 @@ class Board(object):
         """
         Checks whether the board is in a tied state
         """
-        pass
+        return self.board_full() and self.board_valid()
 
     def board_valid(self):
         """
