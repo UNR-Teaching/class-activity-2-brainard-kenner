@@ -8,7 +8,7 @@ class Board(object):
         """
         Initializes the Board of size 3x3
         """
-        self.board = [['_']*3]*3 
+        self.board = [['_' for _ in range(3)] for _ in range(3)]
 
     def mark_square(self, column, row, player):
         """
@@ -36,7 +36,49 @@ class Board(object):
         :return: X, O, or None if no winner
         """
 
-        pass
+        player = 'X'
+        if self.board[0][0] == player and self.board[1][1] == player and self.board[2][2] == player:
+            return player
+
+        if self.board[0][2] == player and self.board[1][1] == player and self.board[2][0] == player:
+            return player
+
+        for i in range(3):
+            vertical = True
+            for j in range(3):
+                vertical = vertical and self.board[i][j] == player
+            if vertical:
+                return player
+
+        for i in range(3):
+            horizontal = True
+            for j in range(3):
+                horizontal = horizontal and self.board[j][i] == player
+            if horizontal:
+                return player
+
+        player = 'O'
+        if self.board[0][0] == player and self.board[1][1] == player and self.board[2][2] == player:
+            return player
+        
+        if self.board[0][2] == player and self.board[1][1] == player and self.board[2][0] == player:
+            return player
+
+        for i in range(3):
+            vertical = True
+            for j in range(3):
+                vertical = vertical and self.board[i][j] == player
+            if vertical:
+                return player
+
+        for i in range(3):
+            horizontal = True
+            for j in range(3):
+                horizontal = horizontal and self.board[j][i] == player
+            if horizontal:
+                return player
+
+        return None
 
     def play_game(self):
         """
@@ -70,7 +112,7 @@ class Board(object):
         """
         for i in range(3):
             for j in range(3):
-                if self.board[i][j] == "_":
+                if self.board[i][j] == '_':
                     return False
 
         return True
