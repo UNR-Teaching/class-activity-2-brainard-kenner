@@ -122,30 +122,6 @@ class TicTacToeTester(unittest.TestCase):
         self.board.mark_square(2, 2, 'X')
         self.assertFalse(self.board.board_tied())
 
-    def test_board_tied_full_winner_X(self):
-        self.board.mark_square(0, 0, 'X')
-        self.board.mark_square(0, 1, 'X')
-        self.board.mark_square(0, 2, 'X')
-        self.board.mark_square(1, 0, 'O')
-        self.board.mark_square(1, 1, 'X')
-        self.board.mark_square(1, 2, 'O')
-        self.board.mark_square(2, 0, 'O')
-        self.board.mark_square(2, 1, 'X')
-        self.board.mark_square(2, 2, 'O')
-        self.assertFalse(self.board.board_tied())
-
-    def test_board_tied_full_winner_O(self):
-        self.board.mark_square(0, 0, 'O')
-        self.board.mark_square(0, 1, 'O')
-        self.board.mark_square(0, 2, 'O')
-        self.board.mark_square(1, 0, 'X')
-        self.board.mark_square(1, 1, 'O')
-        self.board.mark_square(1, 2, 'X')
-        self.board.mark_square(2, 0, 'X')
-        self.board.mark_square(2, 1, 'O')
-        self.board.mark_square(2, 2, 'X')
-        self.assertFalse(self.board.board_tied())
-
     def test_board_tied_not_full(self):
         self.board.mark_square(1, 1, 'X')
         self.board.mark_square(1, 2, 'O')

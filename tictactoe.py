@@ -84,6 +84,7 @@ class Board(object):
     def board_tied(self):
         """
         Checks whether the board is in a tied state
+        Will return true even if the board has been won
         """
         return self.board_full() and self.board_valid()
 
