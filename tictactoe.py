@@ -58,13 +58,18 @@ class Board(object):
         """
         Returns true if the board is full
         """
-        pass
+        for i in range(3):
+            for j in range(3):
+                if self.board[i][j] == "_":
+                    return False
+
+        return True
 
     def valid_player(self, player):
         """
         Checks whether the player is X or O
         """
-        pass
+        return player == 'X' or player == 'O'
 
     def board_tied(self):
         """
@@ -76,7 +81,15 @@ class Board(object):
         """
         Checks if the board has the correct number of X and O values
         """
-        pass
+        x_count = 0
+        o_count = 0
+        for i in range(3):
+            for j in range(3):
+                if self.board[i][j] == 'X':
+                    x_count += 1
+                elif self.board[i][j] == 'O':
+                    o_count += 1
+        return abs(x_count - o_count) <= 1
         
 if __name__ == '__main__':
     board = Board()
